@@ -1,12 +1,13 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, h } from '@stencil/core';
+import { TreeMenuItem } from '../../interfaces/menu-item.interface';
+
 @Component({
-  tag: 'new-component',
-  styleUrl: 'new-component.css',
+  tag: 'tree-list',
+  styleUrl: 'tree-list.css',
   shadow: true,
 })
-export class NewComponent {
-  @Prop() someProp: string;
-  items: any = [
+export class TreeList {
+  items: TreeMenuItem[] = [
     {
       label: 'Plants',
       value: 'plants',
@@ -45,13 +46,15 @@ export class NewComponent {
 
   render() {
     return (
-      <Host>
-        <ul>
+      <div class="tree-list-container">
+        <ul class="tree-list">
           {this.items.map(menuItem => (
-            <menu-item item={menuItem} showCheckbox={true}></menu-item>
+            <div>
+              <menu-item item={menuItem}></menu-item>
+            </div>
           ))}
         </ul>
-      </Host>
+      </div>
     );
   }
 }

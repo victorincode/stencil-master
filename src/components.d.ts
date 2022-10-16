@@ -5,14 +5,20 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TreeMenuItem } from "./interfaces/menu-item.interface";
 export namespace Components {
     interface MenuItem {
+        "compactCheckbox": boolean;
         "displayChildren": boolean;
-        "item": any;
+        "emitTree": boolean;
+        "hideCaret": boolean;
+        "isDisabled": boolean;
+        "item": TreeMenuItem;
+        "label": string;
         "showCheckbox": boolean;
+        "showChildCount": boolean;
     }
-    interface NewComponent {
-        "someProp": string;
+    interface TreeList {
     }
 }
 declare global {
@@ -22,29 +28,34 @@ declare global {
         prototype: HTMLMenuItemElement;
         new (): HTMLMenuItemElement;
     };
-    interface HTMLNewComponentElement extends Components.NewComponent, HTMLStencilElement {
+    interface HTMLTreeListElement extends Components.TreeList, HTMLStencilElement {
     }
-    var HTMLNewComponentElement: {
-        prototype: HTMLNewComponentElement;
-        new (): HTMLNewComponentElement;
+    var HTMLTreeListElement: {
+        prototype: HTMLTreeListElement;
+        new (): HTMLTreeListElement;
     };
     interface HTMLElementTagNameMap {
         "menu-item": HTMLMenuItemElement;
-        "new-component": HTMLNewComponentElement;
+        "tree-list": HTMLTreeListElement;
     }
 }
 declare namespace LocalJSX {
     interface MenuItem {
+        "compactCheckbox"?: boolean;
         "displayChildren"?: boolean;
-        "item"?: any;
+        "emitTree"?: boolean;
+        "hideCaret"?: boolean;
+        "isDisabled"?: boolean;
+        "item"?: TreeMenuItem;
+        "label"?: string;
         "showCheckbox"?: boolean;
+        "showChildCount"?: boolean;
     }
-    interface NewComponent {
-        "someProp"?: string;
+    interface TreeList {
     }
     interface IntrinsicElements {
         "menu-item": MenuItem;
-        "new-component": NewComponent;
+        "tree-list": TreeList;
     }
 }
 export { LocalJSX as JSX };
@@ -52,7 +63,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "menu-item": LocalJSX.MenuItem & JSXBase.HTMLAttributes<HTMLMenuItemElement>;
-            "new-component": LocalJSX.NewComponent & JSXBase.HTMLAttributes<HTMLNewComponentElement>;
+            "tree-list": LocalJSX.TreeList & JSXBase.HTMLAttributes<HTMLTreeListElement>;
         }
     }
 }

@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.tree-list-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.tree-list {
+  height: 300px;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-width: 150px;
+  padding: 0;
+}
+
+.child-item {
+  padding-left: 16px;
+}

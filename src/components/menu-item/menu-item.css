@@ -1,7 +1,32 @@
 :host {
   display: block;
 }
+/* li:hover {
+  background-color: #3e3f40;
+} */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.item-container {
+  display: flex;
+  flex-direction: column;
+  height: 32px;
+}
 
-.child-item{
+.child-item {
   padding-left: 28px;
+}
+
+input,
+button {
+  margin-right: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
 }
